@@ -1,0 +1,258 @@
+{
+  "meta": {
+    "title": "DPO Trend Tracker",
+    "currency": "USD",
+    "updated": "2026-09-17",
+    "coverage": "2025-04/2026-09",
+    "monthCount": 18,
+    "sample": true,
+    "denominator": "purchases",
+    "note": "Sample accounts payable, purchases (COGS equivalent), and payable mix with DPO targets. Not live finance data."
+  },
+  "targets": {
+    "dpoDays": 45,
+    "payableMix": {
+      "trade": 0.7,
+      "logistics": 0.12,
+      "services": 0.1,
+      "accrued": 0.05,
+      "other": 0.03
+    }
+  },
+  "months": [
+    {
+      "month": "2025-04",
+      "apEnding": 3150000,
+      "purchases": 2180000,
+      "daysInPeriod": 30,
+      "payables": {
+        "trade": 2205000,
+        "logistics": 378000,
+        "services": 315000,
+        "accrued": 157500,
+        "other": 94500
+      }
+    },
+    {
+      "month": "2025-05",
+      "apEnding": 3220000,
+      "purchases": 2210000,
+      "daysInPeriod": 31,
+      "payables": {
+        "trade": 2221800,
+        "logistics": 418600,
+        "services": 322000,
+        "accrued": 161000,
+        "other": 96600
+      }
+    },
+    {
+      "month": "2025-06",
+      "apEnding": 3410000,
+      "purchases": 2050000,
+      "daysInPeriod": 30,
+      "payables": {
+        "trade": 2421100,
+        "logistics": 375100,
+        "services": 341000,
+        "accrued": 170500,
+        "other": 102300
+      }
+    },
+    {
+      "month": "2025-07",
+      "apEnding": 3680000,
+      "purchases": 1980000,
+      "daysInPeriod": 31,
+      "payables": {
+        "trade": 2649600,
+        "logistics": 404800,
+        "services": 331200,
+        "accrued": 184000,
+        "other": 110400
+      }
+    },
+    {
+      "month": "2025-08",
+      "apEnding": 3520000,
+      "purchases": 2080000,
+      "daysInPeriod": 31,
+      "payables": {
+        "trade": 2464000,
+        "logistics": 422400,
+        "services": 352000,
+        "accrued": 176000,
+        "other": 105600
+      }
+    },
+    {
+      "month": "2025-09",
+      "apEnding": 3280000,
+      "purchases": 2250000,
+      "daysInPeriod": 30,
+      "payables": {
+        "trade": 2230400,
+        "logistics": 459200,
+        "services": 328000,
+        "accrued": 164000,
+        "other": 98400
+      }
+    },
+    {
+      "month": "2025-10",
+      "apEnding": 3190000,
+      "purchases": 2320000,
+      "daysInPeriod": 31,
+      "payables": {
+        "trade": 2137300,
+        "logistics": 478500,
+        "services": 319000,
+        "accrued": 159500,
+        "other": 95700
+      }
+    },
+    {
+      "month": "2025-11",
+      "apEnding": 3250000,
+      "purchases": 2280000,
+      "daysInPeriod": 30,
+      "payables": {
+        "trade": 2145000,
+        "logistics": 520000,
+        "services": 325000,
+        "accrued": 162500,
+        "other": 97500
+      }
+    },
+    {
+      "month": "2025-12",
+      "apEnding": 3540000,
+      "purchases": 2120000,
+      "daysInPeriod": 31,
+      "payables": {
+        "trade": 2301000,
+        "logistics": 601800,
+        "services": 354000,
+        "accrued": 177000,
+        "other": 106200
+      }
+    },
+    {
+      "month": "2026-01",
+      "apEnding": 3380000,
+      "purchases": 2040000,
+      "daysInPeriod": 31,
+      "payables": {
+        "trade": 2332200,
+        "logistics": 405600,
+        "services": 371800,
+        "accrued": 169000,
+        "other": 101400
+      }
+    },
+    {
+      "month": "2026-02",
+      "apEnding": 3120000,
+      "purchases": 2160000,
+      "daysInPeriod": 28,
+      "payables": {
+        "trade": 2184000,
+        "logistics": 374400,
+        "services": 312000,
+        "accrued": 156000,
+        "other": 93600
+      }
+    },
+    {
+      "month": "2026-03",
+      "apEnding": 3260000,
+      "purchases": 2220000,
+      "daysInPeriod": 31,
+      "payables": {
+        "trade": 2282000,
+        "logistics": 391200,
+        "services": 326000,
+        "accrued": 163000,
+        "other": 97800
+      }
+    },
+    {
+      "month": "2026-04",
+      "apEnding": 3210000,
+      "purchases": 2290000,
+      "daysInPeriod": 30,
+      "payables": {
+        "trade": 2214900,
+        "logistics": 417300,
+        "services": 321000,
+        "accrued": 160500,
+        "other": 96300
+      }
+    },
+    {
+      "month": "2026-05",
+      "apEnding": 3340000,
+      "purchases": 2310000,
+      "daysInPeriod": 31,
+      "payables": {
+        "trade": 2304600,
+        "logistics": 434200,
+        "services": 334000,
+        "accrued": 167000,
+        "other": 100200
+      }
+    },
+    {
+      "month": "2026-06",
+      "apEnding": 3470000,
+      "purchases": 2180000,
+      "daysInPeriod": 30,
+      "payables": {
+        "trade": 2429000,
+        "logistics": 416400,
+        "services": 347000,
+        "accrued": 173500,
+        "other": 104100
+      }
+    },
+    {
+      "month": "2026-07",
+      "apEnding": 3610000,
+      "purchases": 2090000,
+      "daysInPeriod": 31,
+      "payables": {
+        "trade": 2563100,
+        "logistics": 397100,
+        "services": 361000,
+        "accrued": 180500,
+        "other": 108300
+      }
+    },
+    {
+      "month": "2026-08",
+      "apEnding": 3420000,
+      "purchases": 2200000,
+      "daysInPeriod": 31,
+      "payables": {
+        "trade": 2394000,
+        "logistics": 410400,
+        "services": 342000,
+        "accrued": 171000,
+        "other": 102600
+      }
+    },
+    {
+      "month": "2026-09",
+      "apEnding": 3390000,
+      "purchases": 2260000,
+      "daysInPeriod": 30,
+      "payables": {
+        "trade": 2339100,
+        "logistics": 440700,
+        "services": 339000,
+        "accrued": 169500,
+        "other": 101700
+      }
+    }
+  ]
+}

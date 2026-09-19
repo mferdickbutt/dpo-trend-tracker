@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DPO Trend Tracker</title>
+  <meta name="description" content="Days Payable Outstanding trend tracker with payable mix, MoM change, and target comparisons. First paint is fully baked HTML.">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="hero">
+      <div class="kicker">Working capital · payables</div>
+      <h1>DPO Trend Tracker</h1>
+      <p>
+        18 months of sample Days Payable Outstanding (2025-04/2026-09).
+        Summary metrics and the monthly table below are baked into this HTML so a static
+        <code>curl -sL</code> first paint shows DPO, MoM change, payable mix, target comparisons, and every month row with no JavaScript placeholder.
+      </p>
+    </header>
+
+    <section class="metrics" aria-label="Summary metrics">
+      <article class="card" id="metric-dpo">
+        <h2>DPO</h2>
+        <p class="value">45.0</p>
+        <p class="hint">September 2026 · days payable outstanding</p>
+      </article>
+      <article class="card" id="metric-mom">
+        <h2>MoM change</h2>
+        <p class="value down warn">-6.6%</p>
+        <p class="hint">vs August 2026 (48.2 days)</p>
+      </article>
+      <article class="card" id="metric-best-worst">
+        <h2>Best / worst</h2>
+        <p class="sub">Best (highest): July 2025 · 57.6</p>
+        <p class="sub">Worst (lowest): February 2026 · 40.4</p>
+      </article>
+      <article class="card" id="metric-targets">
+        <h2>Target comparisons</h2>
+        <p class="sub">DPO target 45 days: <span class="good">on target</span></p>
+        <p class="sub">Higher DPO is favorable for cash (CCC). Over target is good; under target means paying too fast.</p>
+      </article>
+    </section>
+
+    <section class="mix" id="payable-mix" aria-label="Payable mix">
+      <h2>Payable mix</h2>
+      <p class="hint">Percent of ending AP by category for September 2026.</p>
+      <div class="mix-grid">
+        <div class="mix-row"><div>Trade payables</div><div class="mix-bar" title="69.0%"><span style="width:69.0%"></span></div><div>69.0%</div><div class="sub">under mix target 1.0% pts</div></div><div class="mix-row"><div>Logistics</div><div class="mix-bar" title="13.0%"><span style="width:13.0%"></span></div><div>13.0%</div><div class="sub">over mix target 1.0% pts</div></div><div class="mix-row"><div>Services</div><div class="mix-bar" title="10.0%"><span style="width:10.0%"></span></div><div>10.0%</div><div class="sub">on mix target</div></div><div class="mix-row"><div>Accrued</div><div class="mix-bar" title="5.0%"><span style="width:5.0%"></span></div><div>5.0%</div><div class="sub">on mix target</div></div><div class="mix-row"><div>Other</div><div class="mix-bar" title="3.0%"><span style="width:3.0%"></span></div><div>3.0%</div><div class="sub">on mix target</div></div>
+      </div>
+    </section>
+
+    <section class="trend" aria-label="DPO sparkline">
+      <h2>Monthly DPO</h2>
+      <div class="spark" style="grid-template-columns: repeat(18, 1fr)"><div class="bar" style="height:75.2%" title="April 2025 43.3 days"></div><div class="bar" style="height:78.4%" title="May 2025 45.2 days"></div><div class="bar" style="height:86.6%" title="June 2025 49.9 days"></div><div class="bar" style="height:100.0%" title="July 2025 57.6 days"></div><div class="bar" style="height:91.1%" title="August 2025 52.5 days"></div><div class="bar" style="height:75.9%" title="September 2025 43.7 days"></div><div class="bar" style="height:74.0%" title="October 2025 42.6 days"></div><div class="bar" style="height:74.2%" title="November 2025 42.8 days"></div><div class="bar" style="height:89.8%" title="December 2025 51.8 days"></div><div class="bar" style="height:89.1%" title="January 2026 51.4 days"></div><div class="bar" style="height:70.2%" title="February 2026 40.4 days"></div><div class="bar" style="height:79.0%" title="March 2026 45.5 days"></div><div class="bar" style="height:73.0%" title="April 2026 42.1 days"></div><div class="bar" style="height:77.8%" title="May 2026 44.8 days"></div><div class="bar" style="height:82.9%" title="June 2026 47.8 days"></div><div class="bar" style="height:92.9%" title="July 2026 53.5 days"></div><div class="bar" style="height:83.6%" title="August 2026 48.2 days"></div><div class="bar is-latest" style="height:78.1%" title="September 2026 45.0 days"></div></div>
+    </section>
+
+    <section aria-label="Monthly table">
+      <h2>Monthly table</h2>
+      <p class="hint">Click a column header to sort after JavaScript loads. Rows and values are already in the markup.</p>
+      <p id="selected-month"></p>
+      <div class="table-wrap">
+        <table id="monthly-table">
+          <thead>
+            <tr>
+              <th data-sort="month" data-type="string">Month</th>
+              <th data-sort="trade" data-type="number">Trade payables</th>
+              <th data-sort="logistics" data-type="number">Logistics</th>
+              <th data-sort="services" data-type="number">Services</th>
+              <th data-sort="accrued" data-type="number">Accrued</th>
+              <th data-sort="other" data-type="number">Other</th>
+              <th data-sort="apEnding" data-type="number">AP ending</th>
+              <th data-sort="purchases" data-type="number">Purchases</th>
+              <th data-sort="days" data-type="number">Days</th>
+              <th data-sort="dpo" data-type="number">DPO</th>
+              <th data-sort="mom" data-type="number">MoM</th>
+              <th>vs DPO target</th>
+            </tr>
+          </thead>
+          <tbody>
+<tr data-month="2025-04" data-label="April 2025" data-total="43.3 days"><td data-key="month" data-value="2025-04">April 2025</td><td data-key="trade" data-value="2205000">$2,205,000</td><td data-key="logistics" data-value="378000">$378,000</td><td data-key="services" data-value="315000">$315,000</td><td data-key="accrued" data-value="157500">$157,500</td><td data-key="other" data-value="94500">$94,500</td><td data-key="apEnding" data-value="3150000">$3,150,000</td><td data-key="purchases" data-value="2180000">$2,180,000</td><td data-key="days" data-value="30">30</td><td data-key="dpo" data-value="43.34862385321101">43.3</td><td data-key="mom" data-value="">—</td><td data-key="target"><span class="pill under">Under 3.7%</span></td></tr>
+<tr data-month="2025-05" data-label="May 2025" data-total="45.2 days"><td data-key="month" data-value="2025-05">May 2025</td><td data-key="trade" data-value="2221800">$2,221,800</td><td data-key="logistics" data-value="418600">$418,600</td><td data-key="services" data-value="322000">$322,000</td><td data-key="accrued" data-value="161000">$161,000</td><td data-key="other" data-value="96600">$96,600</td><td data-key="apEnding" data-value="3220000">$3,220,000</td><td data-key="purchases" data-value="2210000">$2,210,000</td><td data-key="days" data-value="31">31</td><td data-key="dpo" data-value="45.167420814479634">45.2</td><td data-key="mom" data-value="0.04195743254566774">+4.2%</td><td data-key="target"><span class="pill over">Over 0.4%</span></td></tr>
+<tr data-month="2025-06" data-label="June 2025" data-total="49.9 days"><td data-key="month" data-value="2025-06">June 2025</td><td data-key="trade" data-value="2421100">$2,421,100</td><td data-key="logistics" data-value="375100">$375,100</td><td data-key="services" data-value="341000">$341,000</td><td data-key="accrued" data-value="170500">$170,500</td><td data-key="other" data-value="102300">$102,300</td><td data-key="apEnding" data-value="3410000">$3,410,000</td><td data-key="purchases" data-value="2050000">$2,050,000</td><td data-key="days" data-value="30">30</td><td data-key="dpo" data-value="49.90243902439025">49.9</td><td data-key="mom" data-value="0.10483260112104245">+10.5%</td><td data-key="target"><span class="pill over">Over 10.9%</span></td></tr>
+<tr data-month="2025-07" data-label="July 2025" data-total="57.6 days"><td data-key="month" data-value="2025-07">July 2025</td><td data-key="trade" data-value="2649600">$2,649,600</td><td data-key="logistics" data-value="404800">$404,800</td><td data-key="services" data-value="331200">$331,200</td><td data-key="accrued" data-value="184000">$184,000</td><td data-key="other" data-value="110400">$110,400</td><td data-key="apEnding" data-value="3680000">$3,680,000</td><td data-key="purchases" data-value="1980000">$1,980,000</td><td data-key="days" data-value="31">31</td><td data-key="dpo" data-value="57.61616161616161">57.6</td><td data-key="mom" data-value="0.1545760636669726">+15.5%</td><td data-key="target"><span class="pill over">Over 28.0%</span></td></tr>
+<tr data-month="2025-08" data-label="August 2025" data-total="52.5 days"><td data-key="month" data-value="2025-08">August 2025</td><td data-key="trade" data-value="2464000">$2,464,000</td><td data-key="logistics" data-value="422400">$422,400</td><td data-key="services" data-value="352000">$352,000</td><td data-key="accrued" data-value="176000">$176,000</td><td data-key="other" data-value="105600">$105,600</td><td data-key="apEnding" data-value="3520000">$3,520,000</td><td data-key="purchases" data-value="2080000">$2,080,000</td><td data-key="days" data-value="31">31</td><td data-key="dpo" data-value="52.46153846153846">52.5</td><td data-key="mom" data-value="-0.08946488294314378">-8.9%</td><td data-key="target"><span class="pill over">Over 16.6%</span></td></tr>
+<tr data-month="2025-09" data-label="September 2025" data-total="43.7 days"><td data-key="month" data-value="2025-09">September 2025</td><td data-key="trade" data-value="2230400">$2,230,400</td><td data-key="logistics" data-value="459200">$459,200</td><td data-key="services" data-value="328000">$328,000</td><td data-key="accrued" data-value="164000">$164,000</td><td data-key="other" data-value="98400">$98,400</td><td data-key="apEnding" data-value="3280000">$3,280,000</td><td data-key="purchases" data-value="2250000">$2,250,000</td><td data-key="days" data-value="30">30</td><td data-key="dpo" data-value="43.733333333333334">43.7</td><td data-key="mom" data-value="-0.1663734115347018">-16.6%</td><td data-key="target"><span class="pill under">Under 2.8%</span></td></tr>
+<tr data-month="2025-10" data-label="October 2025" data-total="42.6 days"><td data-key="month" data-value="2025-10">October 2025</td><td data-key="trade" data-value="2137300">$2,137,300</td><td data-key="logistics" data-value="478500">$478,500</td><td data-key="services" data-value="319000">$319,000</td><td data-key="accrued" data-value="159500">$159,500</td><td data-key="other" data-value="95700">$95,700</td><td data-key="apEnding" data-value="3190000">$3,190,000</td><td data-key="purchases" data-value="2320000">$2,320,000</td><td data-key="days" data-value="31">31</td><td data-key="dpo" data-value="42.625">42.6</td><td data-key="mom" data-value="-0.02534298780487807">-2.5%</td><td data-key="target"><span class="pill under">Under 5.3%</span></td></tr>
+<tr data-month="2025-11" data-label="November 2025" data-total="42.8 days"><td data-key="month" data-value="2025-11">November 2025</td><td data-key="trade" data-value="2145000">$2,145,000</td><td data-key="logistics" data-value="520000">$520,000</td><td data-key="services" data-value="325000">$325,000</td><td data-key="accrued" data-value="162500">$162,500</td><td data-key="other" data-value="97500">$97,500</td><td data-key="apEnding" data-value="3250000">$3,250,000</td><td data-key="purchases" data-value="2280000">$2,280,000</td><td data-key="days" data-value="30">30</td><td data-key="dpo" data-value="42.76315789473684">42.8</td><td data-key="mom" data-value="0.003241240932242639">+0.3%</td><td data-key="target"><span class="pill under">Under 5.0%</span></td></tr>
+<tr data-month="2025-12" data-label="December 2025" data-total="51.8 days"><td data-key="month" data-value="2025-12">December 2025</td><td data-key="trade" data-value="2301000">$2,301,000</td><td data-key="logistics" data-value="601800">$601,800</td><td data-key="services" data-value="354000">$354,000</td><td data-key="accrued" data-value="177000">$177,000</td><td data-key="other" data-value="106200">$106,200</td><td data-key="apEnding" data-value="3540000">$3,540,000</td><td data-key="purchases" data-value="2120000">$2,120,000</td><td data-key="days" data-value="31">31</td><td data-key="dpo" data-value="51.76415094339623">51.8</td><td data-key="mom" data-value="0.21048476052249648">+21.0%</td><td data-key="target"><span class="pill over">Over 15.0%</span></td></tr>
+<tr data-month="2026-01" data-label="January 2026" data-total="51.4 days"><td data-key="month" data-value="2026-01">January 2026</td><td data-key="trade" data-value="2332200">$2,332,200</td><td data-key="logistics" data-value="405600">$405,600</td><td data-key="services" data-value="371800">$371,800</td><td data-key="accrued" data-value="169000">$169,000</td><td data-key="other" data-value="101400">$101,400</td><td data-key="apEnding" data-value="3380000">$3,380,000</td><td data-key="purchases" data-value="2040000">$2,040,000</td><td data-key="days" data-value="31">31</td><td data-key="dpo" data-value="51.36274509803921">51.4</td><td data-key="mom" data-value="-0.007754514235072712">-0.8%</td><td data-key="target"><span class="pill over">Over 14.1%</span></td></tr>
+<tr data-month="2026-02" data-label="February 2026" data-total="40.4 days"><td data-key="month" data-value="2026-02">February 2026</td><td data-key="trade" data-value="2184000">$2,184,000</td><td data-key="logistics" data-value="374400">$374,400</td><td data-key="services" data-value="312000">$312,000</td><td data-key="accrued" data-value="156000">$156,000</td><td data-key="other" data-value="93600">$93,600</td><td data-key="apEnding" data-value="3120000">$3,120,000</td><td data-key="purchases" data-value="2160000">$2,160,000</td><td data-key="days" data-value="28">28</td><td data-key="dpo" data-value="40.44444444444444">40.4</td><td data-key="mom" data-value="-0.21257237386269642">-21.3%</td><td data-key="target"><span class="pill under">Under 10.1%</span></td></tr>
+<tr data-month="2026-03" data-label="March 2026" data-total="45.5 days"><td data-key="month" data-value="2026-03">March 2026</td><td data-key="trade" data-value="2282000">$2,282,000</td><td data-key="logistics" data-value="391200">$391,200</td><td data-key="services" data-value="326000">$326,000</td><td data-key="accrued" data-value="163000">$163,000</td><td data-key="other" data-value="97800">$97,800</td><td data-key="apEnding" data-value="3260000">$3,260,000</td><td data-key="purchases" data-value="2220000">$2,220,000</td><td data-key="days" data-value="31">31</td><td data-key="dpo" data-value="45.52252252252252">45.5</td><td data-key="mom" data-value="0.12555687555687559">+12.6%</td><td data-key="target"><span class="pill over">Over 1.2%</span></td></tr>
+<tr data-month="2026-04" data-label="April 2026" data-total="42.1 days"><td data-key="month" data-value="2026-04">April 2026</td><td data-key="trade" data-value="2214900">$2,214,900</td><td data-key="logistics" data-value="417300">$417,300</td><td data-key="services" data-value="321000">$321,000</td><td data-key="accrued" data-value="160500">$160,500</td><td data-key="other" data-value="96300">$96,300</td><td data-key="apEnding" data-value="3210000">$3,210,000</td><td data-key="purchases" data-value="2290000">$2,290,000</td><td data-key="days" data-value="30">30</td><td data-key="dpo" data-value="42.0524017467249">42.1</td><td data-key="mom" data-value="-0.07622865745369807">-7.6%</td><td data-key="target"><span class="pill under">Under 6.6%</span></td></tr>
+<tr data-month="2026-05" data-label="May 2026" data-total="44.8 days"><td data-key="month" data-value="2026-05">May 2026</td><td data-key="trade" data-value="2304600">$2,304,600</td><td data-key="logistics" data-value="434200">$434,200</td><td data-key="services" data-value="334000">$334,000</td><td data-key="accrued" data-value="167000">$167,000</td><td data-key="other" data-value="100200">$100,200</td><td data-key="apEnding" data-value="3340000">$3,340,000</td><td data-key="purchases" data-value="2310000">$2,310,000</td><td data-key="days" data-value="31">31</td><td data-key="dpo" data-value="44.82251082251082">44.8</td><td data-key="mom" data-value="0.06587279110643579">+6.6%</td><td data-key="target"><span class="pill under">Under 0.4%</span></td></tr>
+<tr data-month="2026-06" data-label="June 2026" data-total="47.8 days"><td data-key="month" data-value="2026-06">June 2026</td><td data-key="trade" data-value="2429000">$2,429,000</td><td data-key="logistics" data-value="416400">$416,400</td><td data-key="services" data-value="347000">$347,000</td><td data-key="accrued" data-value="173500">$173,500</td><td data-key="other" data-value="104100">$104,100</td><td data-key="apEnding" data-value="3470000">$3,470,000</td><td data-key="purchases" data-value="2180000">$2,180,000</td><td data-key="days" data-value="30">30</td><td data-key="dpo" data-value="47.752293577981646">47.8</td><td data-key="mom" data-value="0.06536409276740975">+6.5%</td><td data-key="target"><span class="pill over">Over 6.1%</span></td></tr>
+<tr data-month="2026-07" data-label="July 2026" data-total="53.5 days"><td data-key="month" data-value="2026-07">July 2026</td><td data-key="trade" data-value="2563100">$2,563,100</td><td data-key="logistics" data-value="397100">$397,100</td><td data-key="services" data-value="361000">$361,000</td><td data-key="accrued" data-value="180500">$180,500</td><td data-key="other" data-value="108300">$108,300</td><td data-key="apEnding" data-value="3610000">$3,610,000</td><td data-key="purchases" data-value="2090000">$2,090,000</td><td data-key="days" data-value="31">31</td><td data-key="dpo" data-value="53.54545454545454">53.5</td><td data-key="mom" data-value="0.12131691555322678">+12.1%</td><td data-key="target"><span class="pill over">Over 19.0%</span></td></tr>
+<tr data-month="2026-08" data-label="August 2026" data-total="48.2 days"><td data-key="month" data-value="2026-08">August 2026</td><td data-key="trade" data-value="2394000">$2,394,000</td><td data-key="logistics" data-value="410400">$410,400</td><td data-key="services" data-value="342000">$342,000</td><td data-key="accrued" data-value="171000">$171,000</td><td data-key="other" data-value="102600">$102,600</td><td data-key="apEnding" data-value="3420000">$3,420,000</td><td data-key="purchases" data-value="2200000">$2,200,000</td><td data-key="days" data-value="31">31</td><td data-key="dpo" data-value="48.190909090909095">48.2</td><td data-key="mom" data-value="-0.09999999999999983">-10.0%</td><td data-key="target"><span class="pill over">Over 7.1%</span></td></tr>
+<tr data-month="2026-09" data-label="September 2026" data-total="45.0 days"><td data-key="month" data-value="2026-09">September 2026</td><td data-key="trade" data-value="2339100">$2,339,100</td><td data-key="logistics" data-value="440700">$440,700</td><td data-key="services" data-value="339000">$339,000</td><td data-key="accrued" data-value="169500">$169,500</td><td data-key="other" data-value="101700">$101,700</td><td data-key="apEnding" data-value="3390000">$3,390,000</td><td data-key="purchases" data-value="2260000">$2,260,000</td><td data-key="days" data-value="30">30</td><td data-key="dpo" data-value="45">45.0</td><td data-key="mom" data-value="-0.0662139219015281">-6.6%</td><td data-key="target"><span class="pill on">On target</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer>
+      <p>Formula: DPO = AP ending / (purchases / days in period). Purchases are the COGS-equivalent denominator. Sample source data: <a href="data/dpo.json"><code>data/dpo.json</code></a>. Re-render with <code>node scripts/render-static.js</code>.</p>
+    </footer>
+  </div>
+  <script src="js/dpo.js" defer></script>
+  <script src="js/app.js" defer></script>
+</body>
+</html>
