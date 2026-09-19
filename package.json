@@ -1,0 +1,9 @@
+{
+  "name": "dpo-trend-tracker",
+  "private": true,
+  "description": "Days Payable Outstanding trend tracker with baked first-paint HTML.",
+  "scripts": {
+    "render": "node scripts/render-static.js",
+    "test": "bash scripts/test.sh"
+  }
+}
